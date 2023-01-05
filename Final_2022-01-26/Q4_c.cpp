@@ -27,7 +27,7 @@ public:
         t3.minuts = minuts + t2.minuts;
         t3.seconds = seconds + t2.seconds;
         t3.hours += t3.minuts / 60, t3.minuts += t3.seconds / 60;
-	    t3.seconds %= 60, t3.minuts %= 60, t3.minuts %= 24;
+	    t3.seconds %= 60, t3.minuts %= 60, t3.hours %= 24;
 
 	    return t3;
 	}
