@@ -3,13 +3,9 @@ using namespace std;
 
 class Circle{
 private:
-    double radius;
-    string color;
+    double radius = 1.0;
+    string color = "red";
 public:
-    Circle(){
-        radius = 1.0;
-        color = "red";
-    }
     void getRadius(double r){
         radius = r;
     }
