@@ -4,7 +4,7 @@ using namespace std;
 int sub(int &a, int &b){
     a *= 3;
     cout << "a = " << a << ", b = " << b << "\n";
-    return -a * b;
+    return --a * b;
 }
 int sum(int n){
     if(n < 2)
