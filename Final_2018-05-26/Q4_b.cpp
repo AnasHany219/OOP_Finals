@@ -17,7 +17,7 @@ public:
             balance += balance * 0.2;
         else if(balance > 10000)
             balance += balance * 0.15;
-        else if(balance > 100000)
+        else if(balance > 1000)
             balance += balance * 0.1;
     }
     void withdraw(int n){
