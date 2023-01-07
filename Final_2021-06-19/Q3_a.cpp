@@ -18,20 +18,20 @@ public:
         radius = r;
         color = c;
     }
-    void getRadius(double r){
-        radius = r;
+    double getRadius(){
+        return radius;
     }
-    void getColor(string c){
-        color = c;
+    string getColor(){
+        return color;
     }
-    void getArea(){
-        cout << 22 / 7 * radius * radius << "\n";
+    double getArea(){
+        return 22.0 / 7.0 * radius * radius;
     }
 };
 int main(){
-    Circle Ci;
-    Ci.getRadius(7);
-    Ci.getColor("Black");
-    Ci.getArea();       // 147
+    Circle C1, C2(7), C3(7, "Black");
+    cout << "C1 : " << C1.getRadius() << ", " << C1.getColor() << "\n";
+    cout << "C2 : " << C2.getRadius() << ", " << C2.getColor() << "\n";
+    cout << "C3 : " << C3.getRadius() << ", " << C3.getColor() << "\n";
     return 0;
 }
