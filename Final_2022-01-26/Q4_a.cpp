@@ -6,20 +6,20 @@ private:
     double radius = 1.0;
     string color = "red";
 public:
-    void getRadius(double r){
-        radius = r;
+    double getRadius(){
+        return radius;
     }
-    void getColor(string c){
-        color = c;
+    string getColor(){
+        return color;
     }
-    void getArea(){
-        cout << 22 / 7 * radius * radius << "\n";
+    double getArea(){
+        return 22.0 / 7.0 * radius * radius;
     }
 };
 int main(){
     Circle Ci;
-    Ci.getRadius(7);
-    Ci.getColor("Black");
-    Ci.getArea();       // 147
+    cout << Ci.getRadius() << "\n";
+    cout << Ci.getColor() << "\n";
+    cout << Ci.getArea();
     return 0;
 }
