@@ -11,15 +11,15 @@ public:
 // Set values
     void SetArray(){
         cout << "Enter element 5*5:\n";
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++)
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++)
                 cin >> arr[i][j];
         }
     }
 // Compatibility of the two matrices
     bool operator == (MATRIX a2){
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++){
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
                 if(arr[i][j] != a2.arr[i][j])
                     return 0;
             }
@@ -29,8 +29,8 @@ public:
 // Addition
     MATRIX operator + (MATRIX a2){
         MATRIX a3;
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++){
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
                 a3.arr[i][j] = arr[i][j] + a2.arr[i][j];
             }
         }
@@ -39,22 +39,26 @@ public:
 // Subtraction
     MATRIX operator - (MATRIX a2){
         MATRIX a3;
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++){
+        for(int i = 0; i < N; i++){
+            for(int j = 0; j < N; j++){
                 a3.arr[i][j] = arr[i][j] - a2.arr[i][j];
             }
         }
         return a3;
     }
 // Display The Elements
-    void display(){
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++)
-                    cout << arr[i][j] << " ";
-            cout << "\n";
-        }
-    }
+    friend ostream &operator << (ostream &output, MATRIX a);
 };
+
+ostream &operator << (ostream &output, MATRIX a){
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++)
+            output << a.arr[i][j] << " ";
+        output << "\n";
+    }
+    return output;
+}
+
 int main(){
     MATRIX a1, a2, a3, a4;
     a1.SetArray();
@@ -67,11 +71,12 @@ int main(){
 
     cout << "First array + Second array:\n";
     a3 = a1 + a2;
-    a3.display();
+    cout << a3;
 
     cout << "\nFirst array - Second array:\n";
     a4 = a1 - a2;
-    a4.display();
+    cout << a4;
+
     /*
     --------------Output--------------
     Enter element 5*5:
